@@ -1,0 +1,177 @@
+/*CSS*/
+body{
+    width: 100%;
+    margin: 0;
+
+}
+
+#navbar{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    background: #252525;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+}
+div.name{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}.fa-home{
+     margin-left: 10px;
+ }
+
+#content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    min-height: 90vh;
+}
+.tableaupc{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100%;
+
+}
+.tableau-elec{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+.pc{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+a.button{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 70px;
+    width: 70px;
+    margin: 20px;
+    padding: 40px;
+    border-radius: 8px;
+    border: solid;
+    color: #252525;
+    font-size: 60px;
+    transform: scale(1);
+    transition: 0.2s;
+    z-index: 1;
+}a.button:hover{
+     transform: scale(1.1);
+     transition: 0.2s;
+ }
+a.button i{
+    font-size: 40px;
+}
+
+i.on{
+    visibility: hidden;
+}
+a.led{
+    display: flex;
+    color: white;
+    font-size: 50px;
+    margin: 20px;
+    justify-content: center;
+}
+div.led1{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}div.led2{
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
+     justify-content: center;
+ }
+a.color1{
+    padding: 25px;
+    margin-left: 30px;
+    border-radius: 5px;
+    transform: scale(1);
+    transition: 0.2s;
+}a.color1:hover{
+     transform: scale(1.1);
+     transition: 0.2s;
+ }
+a.color2{
+    padding: 25px;
+    margin-left: 30px;
+    border-radius: 5px;
+    transform: scale(1);
+    transition: 0.2s;
+}a.color2:hover{
+     transform: scale(1.1);
+     transition: 0.2s;
+ }
+
+div.colors{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}div.b14{
+     display: flex;
+     justify-content: center;
+     margin: 25px;
+ }
+div.b57{
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+}
+
+#blue{background: blue}
+#red{background: red}
+#green{background: green}
+#yellow{background: yellow}
+#deepskyblue{background: deepskyblue}
+#pink{background: pink}
+#white{background: white}
+#black{
+    background: url("https://static.vecteezy.com/system/resources/previews/001/194/357/non_2x/no-sign-cross-png.png");
+    background-size: cover;
+}
+
+i{
+    z-index: 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+a.button{
+    z-index: 1;
+    background: white;
+}
+
+div.leds{
+    background: #252525;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    flex-direction: column;
+
+}
+.ico{
+    z-index: 0;
+}
