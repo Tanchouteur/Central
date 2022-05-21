@@ -4,7 +4,7 @@ const app = express();
 const port = 80;
 const ip = '192.168.1.17';
 
-const version = '1.1.1'; const author = 'Louis';
+const version = '1.1.3'; const author = 'Louis';
 
 const SerialPort = require("serialport").SerialPort;
 
@@ -15,8 +15,27 @@ var arduinoCOMPort = "COM4";
 const serialport =new SerialPort({ path: arduinoCOMPort, baudRate: 115200 })
 
 serialport.on('open',function() {
-    console.log(`Serial Port \x1b[32m ${arduinoCOMPort}\x1b[0m ouvert`);
+    console.log(``);
+    console.log(` === Serial Port \x1b[32m${Bright}${Underscore}${arduinoCOMPort}\x1b[0m ouvert ===`);
 });
+
+//Couleur
+let Reset = "\x1b[0m"
+let Bright = "\x1b[1m"
+let Dim = "\x1b[2m"
+let Underscore = "\x1b[4m"
+let Blink = "\x1b[5m"
+let Reverse = "\x1b[7m"
+let Hidden = "\x1b[8m"
+
+let FgBlack = "\x1b[30m"
+let FgRed = "\x1b[31m"
+let FgGreen = "\x1b[32m"
+let FgYellow = "\x1b[33m"
+let FgBlue = "\x1b[34m"
+let FgMagenta = "\x1b[35m"
+let FgCyan = "\x1b[36m"
+let FgWhite = "\x1b[37m"
 
 app.get('/', (req, res) => {
     fs.readFile(__dirname + "/www/index.html")
@@ -46,7 +65,7 @@ app.get('/value', (req, res) => {
     if (sujet!==""){
 
         if (paramA && color){
-            console.log(`Envoyer au port série : `+paramA+sujet+color);
+            console.log(`Envoyer au port série : ${Bright}${FgGreen}${paramA}${FgYellow}${sujet}${FgCyan}${color}${Reset}`);
             serialport.write(paramA+sujet+color);
         }else if (paramA){
             console.log(`Envoyer au port série : \x1b[32m ${paramA}\x1b[33m${sujet} \x1b[0m`);
@@ -95,12 +114,10 @@ app.get('*', (req, res)=>{
 });
 
 app.listen(port, ip, () => {
-    console.log(`\x1b[36m === Developeur : \x1b[1m${author} \x1b[0m\x1b[36m ===  Version du programme : \x1b[1m${version} \x1b[0m\x1b[36m===`);
+    console.log(`${Reset} === Developeur :${FgCyan} \x1b[1m${author} ${Reset} ===  Version du programme : ${FgCyan}\x1b[1m${version} \x1b[0m===`);
     console.log(``);
     
-    console.log(`\x1b[34m ==================================================`);
-    
     console.log(``);
-    console.log(`\x1b[32m === Centrale domotique à l'écoute sur \x1b[1m\x1b[33m\x1b[4m${ip}:${port} \x1b[0m\x1b[32m===`);
+    console.log(` === Centrale domotique à l'écoute sur \x1b[1m\x1b[33m\x1b[4m${ip}:${port}${Reset} ===`);
 
 });
