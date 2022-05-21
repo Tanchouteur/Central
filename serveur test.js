@@ -1,10 +1,9 @@
 const express = require('express');
 const app = express();
-
 const port = 80;
-const ip = '192.168.1.17';
+const ip = '172.20.10.4';
 
-const version = '1.1.1'; const author = 'Louis';
+const version = 'Vtest 1.1.1'; const author = 'Louis';
 
 const SerialPort = require("serialport").SerialPort;
 
@@ -12,11 +11,11 @@ const fs = require('fs').promises;
 
 var arduinoCOMPort = "COM4";
 
-const serialport =new SerialPort({ path: arduinoCOMPort, baudRate: 115200 })
+/*const serialport =new SerialPort({ path: arduinoCOMPort, baudRate: 115200 })
 
 serialport.on('open',function() {
     console.log(`Serial Port \x1b[32m ${arduinoCOMPort}\x1b[0m ouvert`);
-});
+});*/
 
 app.get('/', (req, res) => {
     fs.readFile(__dirname + "/www/index.html")
@@ -102,5 +101,4 @@ app.listen(port, ip, () => {
     
     console.log(``);
     console.log(`\x1b[32m === Centrale domotique à l'écoute sur \x1b[1m\x1b[33m\x1b[4m${ip}:${port} \x1b[0m\x1b[32m===`);
-
 });

@@ -17,6 +17,9 @@ var tv =0;
 var serveur = 0;
 var nas = 0;
 
+var ip = "192.168.1.17";
+var port = '80';
+
 
 document.onclick= function(event) {
     // l'evenement permet de détecter sur quel composant le clic est passé
@@ -58,17 +61,19 @@ document.onclick= function(event) {
 
             if (target.className==="color1"){
                 document.getElementById("bureau").style.color = target.id;
-                httpGetAsync(`http://192.168.1.59:8000/value?sujet=led1&color=${colorled}&paramA=run`);
+                httpGetAsync(`http://${ip}:${port}/value?sujet=led1&color=${colorled}&paramA=run`);
 
             }
             if (target.className==="color2"){
                 document.getElementById("simu").style.color = target.id;
-                httpGetAsync(`http://192.168.1.59:8000/value?sujet=led2&color=${colorled}&paramA=run`);
+                httpGetAsync(`http://${ip}:${port}/value?sujet=led2&color=${colorled}&paramA=run`);
 
             }
         }else {
 
             switch (target.id) {
+
+
                 case 'lamp':
                     if (lamp === "0") {
                         lamp = "1";
@@ -80,7 +85,7 @@ document.onclick= function(event) {
                         paramA = "stop";
                     }
 
-                    httpGetAsync('http://192.168.1.59:8000/value?sujet=lamp&paramA=' + paramA);
+                    httpGetAsync(`http://${ip}:${port}/value?sujet=lamp&paramA=` + paramA);
                     break;
 
                 case 'tv':
@@ -94,7 +99,7 @@ document.onclick= function(event) {
                         paramA = "stop";
                     }
 
-                    httpGetAsync('http://192.168.1.59:8000/value?sujet=tv&paramA=' + paramA);
+                    httpGetAsync(`http://${ip}:${port}/value?sujet=tv&paramA=` + paramA);
                     break;
 
                 case 'serveur':
@@ -108,7 +113,7 @@ document.onclick= function(event) {
                         paramA = "stop";
                     }
 
-                    httpGetAsync('http://192.168.1.59:8000/value?sujet=serveur&paramA=' + paramA);
+                    httpGetAsync(`http://${ip}:${port}/value?sujet=serveur&paramA=` + paramA);
                     break;
 
                 case 'nas':
@@ -123,9 +128,23 @@ document.onclick= function(event) {
                         paramA = "stop";
                     }
 
-                    httpGetAsync('http://192.168.1.59:8000/value?sujet=nas&paramA=' + paramA);
+                    httpGetAsync(`http://${ip}:${port}/value?sujet=nas&paramA=` + paramA);
                     break;
-
+                
+                    case 'pc':
+                        if (nas === 0) {
+                            nas = 1;
+                            document.getElementById(target.id).style.transform = "scale(1.2)";
+                            paramA = "run";
+                        } else {
+                            nas = 0;
+                            document.getElementById(target.id).style.transform = "";
+    
+                            paramA = "stop";
+                        }
+    
+                        httpGetAsync(`http://${ip}:${port}/value?sujet=pc&paramA=` + paramA);
+                        break;
             }
 
 
